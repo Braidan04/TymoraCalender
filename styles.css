@@ -1,0 +1,503 @@
+/* ===== Color Theme: Cream + Dark Brown + Orange ===== */
+:root {
+  --cream: #FDF6E3;
+  --cream-dark: #F5E8C7;
+  --dark-brown: #3E2723;
+  --brown: #5D4037;
+  --orange: #E65100;
+  --orange-light: #FF8A65;
+  --orange-dark: #BF360C;
+  --text: #3E2723;
+  --text-light: #6D4C41;
+  --white: #FFFFFF;
+  --border: #E0D0B0;
+}
+
+/* ===== Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--cream);
+  color: var(--text);
+  padding: 20px;
+}
+
+/* ===== App container ===== */
+.app {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* ===== Header ===== */
+.header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.header h1 {
+  color: var(--dark-brown);
+  font-size: 28px;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  color: var(--text-light);
+  font-size: 14px;
+}
+
+/* ===== Main layout ===== */
+.main {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* ===== Calendar Section ===== */
+.calendar-section {
+  background: var(--white);
+  padding: 18px;
+  border-radius: 12px;
+  flex: 1;
+  box-shadow: 0 4px 12px rgba(62, 39, 35, 0.12);
+  border: 1px solid var(--border);
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.calendar-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--dark-brown);
+}
+
+.calendar-header button {
+  background: var(--cream-dark);
+  border: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  color: var(--dark-brown);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-header button:hover {
+  background: var(--orange-light);
+  color: white;
+}
+
+/* Weekdays */
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-weight: 600;
+  color: var(--brown);
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+/* Calendar grid */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+/* Day cells */
+.day {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 14px;
+  background: var(--cream);
+  cursor: pointer;
+  transition: all 0.15s;
+  color: var(--text);
+}
+
+.day:hover {
+  background: var(--cream-dark);
+}
+
+.day.empty {
+  background: transparent;
+  cursor: default;
+}
+
+/* Today */
+.day.today {
+  background-color: var(--orange-light);
+  color: white;
+  font-weight: bold;
+}
+
+/* Selected day */
+.day.selected {
+  background-color: var(--orange);
+  color: white;
+  font-weight: bold;
+}
+
+.day.selected:hover {
+  background-color: var(--orange-dark);
+}
+
+/* Days that have events */
+.day.has-event {
+  position: relative;
+}
+
+.day.has-event::after {
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  width: 6px;
+  height: 6px;
+  background: var(--orange);
+  border-radius: 50%;
+}
+
+.day.selected.has-event::after,
+.day.today.has-event::after {
+  background: white;
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+  width: 260px;
+}
+
+.panel {
+  background: var(--white);
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(62, 39, 35, 0.12);
+  border: 1px solid var(--border);
+}
+
+.panel h3 {
+  margin-bottom: 12px;
+  font-size: 16px;
+  color: var(--dark-brown);
+}
+
+/* ===== Form Styles ===== */
+.form-group {
+  margin-bottom: 12px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: var(--brown);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  background: var(--cream);
+  color: var(--text);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--orange);
+  background: white;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 10px;
+  background: var(--orange);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+.btn-primary:hover {
+  background: var(--orange-dark);
+}
+
+/* ===== Events List ===== */
+.events-list {
+  list-style: none;
+  margin-top: 10px;
+}
+
+.events-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.events-list li:last-child {
+  border-bottom: none;
+}
+
+.events-list .empty {
+  color: var(--text-light);
+  font-style: italic;
+}
+
+.event-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.event-info strong {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--dark-brown);
+}
+
+.event-time {
+  font-size: 12px;
+  color: var(--text-light);
+}
+
+.event-category {
+  display: inline-block;
+  font-size: 11px;
+  background: var(--cream-dark);
+  color: var(--brown);
+  padding: 1px 6px;
+  border-radius: 4px;
+  margin-top: 3px;
+}
+
+.edit-btn {
+  background: none;
+  border: none;
+  color: var(--orange);
+  cursor: pointer;
+  font-size: 13px;
+  padding: 2px 6px;
+  margin-right: 4px;
+}
+
+.edit-btn:hover {
+  text-decoration: underline;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #c62828;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 2px 6px;
+}
+
+.delete-btn:hover {
+  text-decoration: underline;
+}
+/* ===== Top Buttons ===== */
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.top-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.top-btn {
+  padding: 7px 14px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  color: var(--dark-brown);
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.top-btn:hover {
+  background: var(--cream-dark);
+}
+
+.top-btn.active {
+  background: var(--orange);
+  color: white;
+  border-color: var(--orange);
+}
+
+/* ===== Settings Panel ===== */
+.settings-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 340px;
+  height: 100vh;
+  background: var(--white);
+  box-shadow: -4px 0 20px rgba(62, 39, 35, 0.15);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--border);
+}
+
+.settings-panel.hidden {
+  display: none;
+}
+
+.settings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--cream);
+}
+
+.settings-header h2 {
+  font-size: 18px;
+  color: var(--dark-brown);
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--brown);
+  line-height: 1;
+}
+
+.close-btn:hover {
+  color: var(--orange);
+}
+
+.settings-menu {
+  list-style: none;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.settings-menu li {
+  padding: 12px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--text);
+  transition: background 0.15s;
+}
+
+.settings-menu li:hover {
+  background: var(--cream);
+  color: var(--orange);
+}
+
+.settings-content {
+  padding: 20px;
+  flex: 1;
+  overflow-y: auto;
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+/* ===== Hamburger Menu Button ===== */
+.menu-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--white);
+  color: var(--dark-brown);
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  box-shadow: 0 2px 6px rgba(62, 39, 35, 0.1);
+}
+
+.menu-btn:hover {
+  background: var(--orange);
+  color: white;
+  border-color: var(--orange);
+}
+/* Settings action buttons */
+.settings-action-btn {
+  padding: 10px 14px;
+  background: var(--orange);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.settings-action-btn:hover {
+  background: var(--orange-dark);
+}
+
+.settings-action-btn.danger {
+  background: #c62828;
+}
+
+.settings-action-btn.danger:hover {
+  background: #b71c1c;
+}
+
+.theme-btn {
+  padding: 10px 14px;
+  background: var(--cream-dark);
+  color: var(--dark-brown);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.theme-btn:hover {
+  background: var(--orange);
+  color: white;
+  border-color: var(--orange);
+}

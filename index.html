@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tymora Calendar</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="app">
+    <!-- HEADER -->
+    <header class="header">
+  <div class="header-top">
+    <h1>Tymora Calendar</h1>
+    
+    <button class="menu-btn" id="btn-settings" title="Settings">
+      ☰
+    </button>
+    </div>
+   <p class="subtitle">Simple calendar powered by JavaScript & JSON</p>
+  </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+      <!-- Calendar Section -->
+      <section class="calendar-section">
+        <div class="calendar-header">
+          <button id="prev-month">‹</button>
+          <h2 id="current-month-year">Month Year</h2>
+          <button id="next-month">›</button>
+        </div>
+
+        <div class="weekdays">
+          <div>Sun</div>
+          <div>Mon</div>
+          <div>Tue</div>
+          <div>Wed</div>
+          <div>Thu</div>
+          <div>Fri</div>
+          <div>Sat</div>
+        </div>
+
+        <div id="calendar-grid" class="calendar-grid">
+          <!-- Days will be added by JavaScript -->
+        </div>
+      </section>
+
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="panel">
+          <h3 id="form-title">Add Event</h3>
+
+          <form id="event-form">
+            <div class="form-group">
+              <label for="event-title">Title *</label>
+              <input type="text" id="event-title" required placeholder="Event title">
+            </div>
+
+            <div class="form-group">
+              <label for="event-date">Date *</label>
+              <input type="date" id="event-date" required>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="event-start">Start</label>
+                <input type="time" id="event-start">
+              </div>
+              <div class="form-group">
+                <label for="event-end">End</label>
+                <input type="time" id="event-end">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="event-category">Category</label>
+              <select id="event-category">
+                <option value="">-- Select --</option>
+                <option value="Study">Study</option>
+                <option value="Work">Work</option>
+                <option value="Personal">Personal</option>
+                <option value="Meeting">Meeting</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="event-notes">Notes</label>
+              <textarea id="event-notes" rows="2" placeholder="Optional notes..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary">Save Event</button>
+          </form>
+        </div>
+
+        <!-- Events list for selected day -->
+        <div class="panel" style="margin-top: 16px;">
+          <h3>Events on <span id="selected-date-label">this day</span></h3>
+          <ul id="events-list" class="events-list">
+            <li class="empty">Click a day to see events</li>
+          </ul>
+        </div>
+      </aside>
+    </main>
+
+    <!-- SETTINGS PANEL -->
+    <div id="settings-panel" class="settings-panel hidden">
+      <div class="settings-header">
+        <h2>Calendar Options</h2>
+        <button id="close-settings" class="close-btn">×</button>
+      </div>
+
+      <ul class="settings-menu">
+        <li data-section="calendar-settings">Calendar settings</li>
+        <li data-section="appearance">Appearance & themes</li>
+        <li data-section="manage">Manage calendars</li>
+        <li data-section="import-export">Import & export</li>
+        <li data-section="notifications">Notifications</li>
+        <li data-section="privacy">Privacy & security</li>
+        <li data-section="shortcuts">Keyboard shortcuts</li>
+        <li data-section="help">Help & feedback</li>
+      </ul>
+
+      <div id="settings-content" class="settings-content">
+        <p>Select an option from the menu</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
